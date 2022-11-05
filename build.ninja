@@ -1,0 +1,13 @@
+includes = -Iinclude -Ithird_party/glfw/include/ -Ithird_party/glm/ -Ithird_party/stb/ -Ithird_party/freetype/include/
+compflags = -std=c++20 -static-libstdc++ -static-libgcc -DBUILD_DLL
+linkerflags = -Llib/
+ignorelist = -Wno-volatile -Wno-write-strings
+rule compile
+ command = g++ $compflags $includes -c $in -o $out -g $ignorelist
+
+rule link
+ command = g++ -shared -g $in -o $out $linkerflags $ignorelist
+
+build ./build/main.o: compile ./src/main.cpp
+
+build ./build/main.dll: link ./build/main.o
