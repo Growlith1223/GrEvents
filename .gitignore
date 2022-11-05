@@ -1,3 +1,4 @@
 .ccls-cache/
 build/
 .ninja-log
+.ninja_log
