@@ -8,6 +8,6 @@ rule compile
 rule link
  command = g++ -shared -g $in -o $out $linkerflags $ignorelist
 
-build ./build/main.o: compile ./src/main.cpp
+build ./build/GrEvents.o: compile ./src/GrEvents.cpp
 
-build ./build/main.dll: link ./build/main.o
+build ./build/GrEvents.dll: link ./build/GrEvents.o
