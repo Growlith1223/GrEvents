@@ -1,6 +1,3 @@
 #include <main.h>
 #include <iostream>
-
-EXPORT void wack() {
-    std::cout << "Wack\n" << std::endl;
-}
+EXPORT std::map<int, std::vector<void*>> listeners;
