@@ -7,6 +7,8 @@
 #else
 #define EXPORT __declspec(dllimport)
 #endif
+#ifndef H_GREVENTS_H
+#define H_GREVENTS_H
 class EventPacket {
 	public:
 	~EventPacket() {
@@ -28,3 +30,4 @@ namespace EventManager {
      */
     EXPORT void subscribeTo(const char* EventType, void(*func)(EventPacket*));
 };
+#endif

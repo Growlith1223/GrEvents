@@ -1,6 +1,7 @@
 #include <GrEvents.h>
 #include <iostream>
-std::map<const char*, std::vector<void*>> listeners;
+#include <string>
+std::map<std::string, std::vector<void*>> listeners;
 
 void EventManager::signal(const char* EventType, EventPacket* ep) {
         std::vector<void*>& eventHandler = listeners[EventType];
