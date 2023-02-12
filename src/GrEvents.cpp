@@ -1,15 +1,18 @@
 #include <GrEvents.h>
+
 #include <iostream>
+#include <map>
 #include <string>
-std::map<std::string, std::vector<void*>> listeners;
+#include <vector>
 
-void EventManager::signal(const char* EventType, EventPacket* ep) {
-        std::vector<void*>& eventHandler = listeners[EventType];
-        for (void* d : eventHandler)
-            reinterpret_cast<void (*)(EventPacket*)>(d)(ep);
-    }
+typedef void (*func)(EventPacket&);
+std::map<std::string, std::vector<func>> listeners;
+void EventManager::signal(const char* EventType, EventPacket& ep) {
+  std::vector<func>& eventHandler = listeners[EventType];
+  for (func d : eventHandler) d(ep);
+}
 
-void EventManager::subscribeTo(const char* EventType, void(*func)(EventPacket*)) {
-        std::vector<void*>& eventHandler = listeners[EventType];
-        eventHandler.push_back(reinterpret_cast<void*>(func));
-    }
+void EventManager::subscribeTo(const char* EventType, func fn) {
+  std::vector<func>& eventHandler = listeners[EventType];
+  eventHandler.push_back(fn);
+}

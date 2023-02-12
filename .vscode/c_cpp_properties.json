@@ -1,28 +1,28 @@
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**",
+	"configurations": [
+		{
+			"name": "Win32",
+			"includePath": [
+				"${workspaceFolder}/**",
 				"C:/msys64/mingw64/include/c++/12.2.0/",
 				"C:/msys64/mingw64/include/c++/12.2.0/x86_64-w64-mingw32"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "windows-gcc-x64",
+			],
+			"defines": [
+				"_DEBUG",
+				"UNICODE",
+				"_UNICODE"
+			],
+			"compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
+			"cStandard": "c11",
+			"cppStandard": "c++20",
+			"intelliSenseMode": "windows-gcc-x64",
 			"browse": {
 				"path": [
 					"${workspaceFolder}/**"
 				],
 				"databaseFilename": ""
-			},
-        }
-    ],
-    "version": 4
+			}
+		}
+	],
+	"version": 4
 }
