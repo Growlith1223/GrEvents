@@ -1,0 +1,8 @@
+BasedOnStyle: Google
+IndentWidth: 4
+SortIncludes: false
+PointerAlignment: Left
+ReferenceAlignment: Left
+NamespaceIndentation: All
+AllowShortFunctionsOnASingleLine: None
+CommentPragmas: '^\\.+'
