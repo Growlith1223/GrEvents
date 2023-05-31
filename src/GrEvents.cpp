@@ -1,20 +1,15 @@
 #include <GrEvents.h>
-
-#include <iostream>
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <vector>
 
-typedef void (*func)(EventPacket&);
-std::map<std::string, std::vector<func>> listeners;
+typedef std::function<void(EventPacket&)> func;
+std::unordered_map<std::string, std::vector<func>> listeners;
 void EventManager::signal(const char* EventType, EventPacket& ep) {
     if (listeners.find(EventType) ==
         listeners
             .end()) {  // if not found, let user know that it does not exist.
-        char* err = new char[256];
-        sprintf(err, "Could not find '%s' within the available events.",
-                EventType);
-        throw new std::runtime_error(err);
+        throw;
     }
     std::vector<func>& eventHandler =
         listeners[EventType];  // Retrieve event listener

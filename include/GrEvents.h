@@ -5,6 +5,7 @@
 #endif
 #ifndef H_GREVENTS_H
 #define H_GREVENTS_H
+#include <functional>
 class EventPacket {
    public:
     ~EventPacket() {
@@ -23,6 +24,7 @@ namespace EventManager {
      * @param EventType Name of Event to listen to
      * @param func The function we want the EventManager to call
      */
-    EXPORT void subscribeTo(const char* EventType, void (*func)(EventPacket&));
+    EXPORT void subscribeTo(const char* EventType,
+                            std::function<void(EventPacket&)>);
 };  // namespace EventManager
 #endif
